@@ -368,3 +368,12 @@ void srandom(unsigned int seed);
 /* Version number of package */
 #define VERSION "1.1.2.1"
 
+#ifdef __NetBSD__
+#undef HAVE___ARGZ_COUNT
+
+#undef HAVE___ARGZ_NEXT
+
+#undef HAVE___ARGZ_STRINGIFY
+
+#undef HAVE_ARGZ_H
+#endif

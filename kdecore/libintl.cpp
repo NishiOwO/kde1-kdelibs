@@ -75,7 +75,7 @@ Cambridge, MA 02139, USA.  */
 #define _ARGZ_H_WORKAROUND_
 extern "C" {
 #endif
-# include <argz.h>
+/*# include <argz.h>*/
 #ifdef _ARGZ_H_WORKAROUND_
 }
 #undef __BEGIN_DECLS
@@ -84,6 +84,10 @@ extern "C" {
 #define	__END_DECLS	} 
 #endif // _ARGZ_H_WORKAROUND_
 #endif // HAVE_ARGZ_H
+
+#undef HAVE___ARGZ_COUNT
+#undef HAVE___ARGZ_STRINGIFY
+#undef HAVE___ARGZ_NEXT
 
 #ifdef HAVE_MALLOC_H
 # include <malloc.h>
