@@ -111,7 +111,9 @@ extern "C" {
 #else
 # if defined HAVE_ALLOCA_H 
 #ifndef __FreeBSD__
+#ifndef __OpenBSD__
 #  include <alloca.h>
+#endif
 #endif
 # else
 #  ifdef _AIX
