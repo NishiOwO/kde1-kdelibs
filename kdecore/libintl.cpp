@@ -90,7 +90,9 @@ extern "C" {
 #undef HAVE___ARGZ_NEXT
 
 #ifdef HAVE_MALLOC_H
+#ifndef __OpenBSD__
 # include <malloc.h>
+#endif
 #endif
 
 #if defined HAVE_STRING_H
