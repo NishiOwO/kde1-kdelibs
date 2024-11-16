@@ -71,9 +71,7 @@
 #define HAVE_LIBPNG 1
 
 /* defines which to take for ksize_t */
-#ifndef __FreeBSD__
-#define ksize_t socklen_t
-#endif
+#define KSIZE_T socklen_t
 
 /* define if you have setenv */
 #define HAVE_FUNC_SETENV 1

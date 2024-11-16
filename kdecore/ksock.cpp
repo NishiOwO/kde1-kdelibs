@@ -398,7 +398,7 @@ unsigned long KSocket::getAddr()
   if ( domain != PF_INET )
     return 0;
   
-  struct sockaddr_in name; ksize_t len = sizeof(name);
+  struct sockaddr_in name; KSIZE_T len = sizeof(name);
   getsockname(sock, (struct sockaddr *) &name, &len);
   return ntohl(name.sin_addr.s_addr);
 }
@@ -540,7 +540,7 @@ unsigned short KServerSocket::getPort()
   if ( domain != PF_INET )
     return false;
 
-  struct sockaddr_in name; ksize_t len = sizeof(name);
+  struct sockaddr_in name; KSIZE_T len = sizeof(name);
   getsockname(sock, (struct sockaddr *) &name, &len);
   return ntohs(name.sin_port);
 }
@@ -550,7 +550,7 @@ unsigned long KServerSocket::getAddr()
   if ( domain != PF_INET )
     return false;
 
-  struct sockaddr_in name; ksize_t len = sizeof(name);
+  struct sockaddr_in name; KSIZE_T len = sizeof(name);
   getsockname(sock, (struct sockaddr *) &name, &len);
   return ntohl(name.sin_addr.s_addr);
 }
@@ -562,7 +562,7 @@ void KServerSocket::slotAccept( int )
     struct sockaddr_in clientname;
     int new_sock;
     
-    ksize_t size = sizeof(clientname);
+    KSIZE_T size = sizeof(clientname);
     
     if ((new_sock = accept (sock, (struct sockaddr *) &clientname, &size)) < 0)
     {
@@ -577,7 +577,7 @@ void KServerSocket::slotAccept( int )
     struct sockaddr_un clientname;
     int new_sock;
     
-    ksize_t size = sizeof(clientname);
+    KSIZE_T size = sizeof(clientname);
     
     if ((new_sock = accept (sock, (struct sockaddr *) &clientname, &size)) < 0)
     {
@@ -593,7 +593,7 @@ KServerSocket::~KServerSocket()
 {
   if ( notifier )
 	delete notifier; 
-  struct sockaddr_un name; ksize_t len = sizeof(name);
+  struct sockaddr_un name; KSIZE_T len = sizeof(name);
   getsockname(sock, (struct sockaddr *) &name, &len);
   close( sock );
   unlink(name.sun_path);                                                       
